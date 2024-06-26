@@ -32,7 +32,6 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -43,10 +42,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // ViewModel
-    def lifecycle_version = "2.4.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+   // def lifecycle_version = "2.4.1"
+  //  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     // Architectural Components
-   // implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     // Room
     implementation "androidx.room:room-runtime:2.2.5"

@@ -3,6 +3,7 @@ package com.androiddevs.mvvmnewsapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.androiddevs.mvvmnewsapp.R
@@ -18,11 +19,14 @@ class NewsActivity : AppCompatActivity() {
 
         // on below line we are
         // initializing our view modal.
-        newsViewModel = ViewModelProvider(
+      /*  newsViewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NewsViewModel::class.java)
-
+        ).get(NewsViewModel::class.java)*/
+        val newsRepository= NewsRepository(ArticleDataBase.getDataBase(this).getArticleDao())
+        val viewModelProviderFactory= NewsViewModelProviderFactory(newsRepository)
+        newsViewModel=ViewModelProvider(this,viewModelProviderFactory).get(NewsViewModel::class.java)
+// bottomNavigation
         bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
 
     }
